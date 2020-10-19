@@ -1,0 +1,17 @@
+body{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+button{
+  background-color: rgb(0, 164, 230);
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+button:hover{
+  background-color: red;
+  transition: 0.7s;
+}
