@@ -6,20 +6,15 @@ class App extends Component{
     super()
     this.state= {
       fullName:"ALi Sami chaouch ",bio: "hello world",profession: "html css js react ..... " ,imgSrc: aaaa , imgAlt:"erreur"
-    ,show: true , time : 0 , tl: new Date().toLocaleTimeString()
+    ,show: false , time : 0 , 
    };
   }
-  hide(){
-    this.setState({
-      show: false
-    })
-  }
+  handelClick=() => this.setState({show : !this.state.show})
   componentDidMount = () => {
     setInterval(()=>{
-      this.setState(ngu=> ({
-        time:ngu.time + 1 ,
-        tl: new Date().toLocaleTimeString()
-      }));
+      let time = new Date()
+      time=time.getHours()+":"+time.getMinutes()
+      this.setState({time:time})
     },1000)
   }
   
@@ -27,23 +22,21 @@ class App extends Component{
     return(
       <>
       <center>
-      
       {
-        this.state.show?
+        this.state.show &&
       <div className="all">
       <h3>fullName :  {this.state.fullName}</h3>
       <h3>bio  : {this.state.bio}</h3>
       <h3>profession  : {this.state.profession}</h3>
      <img src={this.state.imgSrc} alt={this.state.imgAlt}/>
      <br />
+     </div>
+  }
      
-     
-     <h3>y have   {this.state.time} s in this web</h3>
-    <h3>time : {this.state.tl}</h3>
-   </div>
-    :null
-      }
-     <button onClick={()=>this.hide()}> ClickMe</button>
+     <h3> {this.state.time} </h3>
+   
+
+     <button onClick={this.handelClick}> ClickMe</button>
      </center>
       </>
     );
